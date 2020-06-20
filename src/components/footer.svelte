@@ -28,7 +28,11 @@
         height: 48px;
         background-color: #37474f;
         margin-top: 32px;
-        margin-bottom: -20px;
+        overflow: hidden;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
     }
 
     .pie-pagina .derechos {

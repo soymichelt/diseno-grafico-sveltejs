@@ -6,16 +6,16 @@
 
     async function getDatos() {
         try {
-            const response = await fetch('https://kitsu.io/api/edge/anime');
-            const { data } = await response.json();
+            const response = await fetch('https://rickandmortyapi.com/api/character/');
+            const { results } = await response.json();
 
             const publicacionesNuevas = [];
-            data.map((item) => {
+            results.map((item) => {
                 publicacionesNuevas.push({
-                    avatar: item.attributes.coverImage ? item.attributes.coverImage.original : '/assets/dev.png',
-                    nombre: item.attributes.titles.en,
-                    fecha: item.attributes.createdAt,
-                    imagen: item.attributes.posterImage.original,
+                    avatar: '/assets/dev.png',
+                    nombre: item.name,
+                    fecha: item.created,
+                    imagen: item.image,
                 });
             });
             publicaciones = publicacionesNuevas;
@@ -44,7 +44,6 @@
     .publicaciones {
         display: grid;
         grid-template-columns: 325px 325px 325px;
-        /*grid-template-rows: 345px 345px;*/
         justify-content: center;
     }
 </style>
