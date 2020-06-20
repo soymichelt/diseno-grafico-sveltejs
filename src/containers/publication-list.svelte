@@ -3,6 +3,7 @@
     import { onMount, } from 'svelte';
 
     let publicaciones = [];
+    let isLoading = true;
 
     async function getDatos() {
         try {
@@ -19,7 +20,7 @@
                 });
             });
             publicaciones = publicacionesNuevas;
-
+            isLoading = false;
         }
         catch(e) {
             console.log(e);
@@ -28,6 +29,15 @@
 
     onMount(getDatos);
 </script>
+
+{#if isLoading}
+    <section class="loading">
+        <h1>
+            Espere un momento por favor...
+        </h1>
+        <img src="/assets/loading.gif" />
+    </section>
+{/if}
 
 <section class="publicaciones">
     {#each publicaciones as publicacion}
@@ -44,6 +54,10 @@
     .publicaciones {
         display: grid;
         grid-template-columns: 325px 325px 325px;
+        justify-content: center;
+    }
+    .loading {
+        display: flex;
         justify-content: center;
     }
 </style>
