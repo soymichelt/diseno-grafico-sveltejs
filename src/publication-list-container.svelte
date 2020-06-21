@@ -7,7 +7,7 @@
 
     async function getDatos() {
         try {
-            const response = await fetch('URL DE LA API');
+            const response = await fetch('URL DE LA API REST');
             const { results } = await response.json();
 
             const publicacionesNuevas = [];
