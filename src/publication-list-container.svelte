@@ -1,5 +1,5 @@
 <script>
-    import PublicationItem from './../components/publication-item.svelte';
+    import PublicationItem from './publication-list.svelte';
     import { onMount, } from 'svelte';
 
     let publicaciones = [];
@@ -7,7 +7,7 @@
 
     async function getDatos() {
         try {
-            const response = await fetch('https://rickandmortyapi.com/api/character/');
+            const response = await fetch('URL DE LA API');
             const { results } = await response.json();
 
             const publicacionesNuevas = [];
@@ -35,7 +35,7 @@
         <h1>
             Espere un momento por favor...
         </h1>
-        <img src="/assets/loading.gif" />
+        <img src="/assets/loading.gif" alt="Cargando..." />
     </section>
 {/if}
 
@@ -58,6 +58,14 @@
     }
     .loading {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    h1 {
+        color: #fff;
+    }
+    img {
+        width: 48px;
+        height: 48px;
     }
 </style>

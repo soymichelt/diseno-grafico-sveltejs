@@ -1,5 +1,5 @@
 <script>
-    import PublicationList from './../containers/publication-list.svelte';
+    import PublicationList from './publication-list-container.svelte';
 </script>
 
 <section class="contenido">
